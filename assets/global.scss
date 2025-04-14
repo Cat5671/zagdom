@@ -1,0 +1,23 @@
+@use './colors' as *;
+@use './mixins' as *;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+
+
+:root {
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+  }
+
+.navigation__list {
+  @include font-styles(var(--font-secondary), 400, $gray, 16px, 120%, 0%);
+}
+
+.contacts__telephone {
+  @include font-styles(var(--font-primary), 400, $primary, 14px, 120%, 0%);
+}
+
+button {
+  @include font-styles(var(--font-primary), 400, $white, 14px, 100%, 0.15px);
+  background-color: $secondary;
+}
