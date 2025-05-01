@@ -1,9 +1,19 @@
 <template>
-  <Header/>
+  <div class="layout">
+    <Header/>
+    <main class="main-content"></main>
+    <Footer/>
+  </div>
 </template>
 
 <style scoped>
-</style>
 
-<script setup lang="ts">
-</script>
+.layout {
+  display: flex;
+  flex-flow: column;
+}
+
+.main-content {
+  flex-grow: 1;
+}
+</style>

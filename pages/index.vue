@@ -1,5 +1,6 @@
 <template>
-  <NuxtLayout></NuxtLayout>
+  <NuxtLayout>
+  </NuxtLayout>
 </template>
 <style scoped>
 
