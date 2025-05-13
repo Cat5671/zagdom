@@ -1,27 +1,41 @@
 @use './colors' as *;
 @use './mixins' as *;
 
+:root {
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Open Sans', sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
-:root {
-    --font-primary: 'Montserrat', sans-serif;
-    --font-secondary: 'Open Sans', sans-serif;
+.header, .footer-footer {
+  @media (min-width: 1060px) {
+    margin-right: 88px;
+    margin-left: 88px;
+
   }
+  @media (max-width: 1060px) {
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+}
 
 .header-navigation__list {
   @include font-styles(var(--font-secondary), 400, $gray, 16px, 120%, 0%);
 }
 
-.header-contacts__telephone, .footer-contacts {
+.header-contacts__telephone, .footer-contacts, .drawer-contacts {
   @include font-styles(var(--font-primary), 400, $primary, 14px, 120%, 0%);
 }
 
 button {
   @include font-styles(var(--font-primary), 400, $white, 14px, 100%, 0.15px);
   background-color: $secondary;
+  @include btn-styles(49px, 204px);
 }
 
 address {
@@ -37,15 +51,40 @@ ul {
   flex-shrink: 0;
 }
 
-.footer-contacts {
+.footer-contacts, .drawer-contacts {
   color: $white;
 }
 
-.footer-menu {
+.footer-menu, .drawer-navigation {
   @include font-styles(var(--font-secondary), 400, $white, 16px, 120%, 0%);
 }
 
 p {
   @include font-styles(var(--font-secondary), 400, $white, 14px, 121%, 0%);
   opacity: 60%;
+}
+
+.header-contacts__telephone, .footer-contacts__telephone address {
+  width: 134px;
+}
+
+.drawer {
+  background-color: $secondary;
+}
+
+#drawer-open-checkbox {
+  @include btn-styles(46px, 56px);
+  margin: 0;
+  opacity: 0;
+}
+
+.header-contacts__form {
+  display: block;
+  background-color: $secondary;
+  @include btn-styles(46px, 56px);
+}
+
+.drawer__button {
+  @include btn-styles(32px, 32px);
+  background-color: $secondary;
 }

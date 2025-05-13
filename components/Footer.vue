@@ -5,7 +5,7 @@
 
       <div class="footer-logo">
         <img src="../public/img/logo_footer.svg" alt="logo">
-        <p>© Загдом, 2021</p>
+        <p class="footer-logo__text">© Загдом, 2021</p>
       </div>
 
       <div class="footer-links">
@@ -17,7 +17,7 @@
               <li><a>Контакты</a></li>
             </ul>
           </nav>
-          <p>Политика конфиденциальности</p>
+          <p class="footer-menu__text">Политика конфиденциальности</p>
         </div>
 
         <div class="footer-contacts">
@@ -42,7 +42,16 @@
           <p class="footer-contacts__text">Пользовательское соглашение</p>
         </div>
       </div>
-      <Button></Button>
+
+      <div style="display: flex; flex-direction: column; row-gap: 40px;">
+        <Button></Button>
+        <div id=hidden-links>
+          <p class="hidden-links__elem">© Загдом, 2021</p>
+          <p class="hidden-links__elem">Политика конфиденциальности</p>
+          <p class="hidden-links__elem">Пользовательское соглашение</p>
+        </div>
+      </div>
+
     </div>
   </footer>
 </template>
@@ -52,14 +61,15 @@
   .footer-footer {
     display: flex;
     justify-content: space-between;
-    margin: 31.5px 87.5px 33px 88px;
+    margin-top: 31.5px;
+    margin-bottom: 33px;
+    flex-wrap: wrap;
   }
 
   .footer-navigation__list, .footer-contacts__list{
     display: flex;
     flex-direction: column;
     row-gap: 24px;
-
   }
 
   .footer-contacts__telephone, .footer-contacts__email, .footer-contacts__address {
@@ -74,11 +84,18 @@
 
   .footer-logo {
     margin-top: 5.5px;
+
+    @media (max-width: 1200px) {
+      margin-right: 40px;
+    }
   }
 
   .footer-menu {
     margin-top: 1px;
-    margin-right: 122px;
+
+    @media (min-width: 1200px) {
+      margin-right: 90px;
+    }
   }
 
   .footer-contacts {
@@ -93,10 +110,67 @@
 
   .footer-contacts__text {
     margin-top: 32px;
+    margin-left: 9px;
   }
 
   .footer-links {
     display: flex;
-    margin-right: 85px;
+    @media (max-width: 1280px) {
+      max-width: 550px;
+      min-width: 490px;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 1280px) {
+      margin-right: 90px;
+    }
   }
+
+  .footer-menu__text {
+    margin-left: 6px;
+  }
+
+  #hidden-links {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    @media (min-width: 530px) {
+      display: none;
+    }
+  }
+
+
+  .hidden-links__elem {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  @media (max-width: 530px) {
+
+    .footer-footer {
+      margin: 40px 0px 40.46px 40px;
+      row-gap: 40px;
+    }
+
+    .footer-navigation__list {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .footer-contacts, .footer-menu {
+        margin-top: 0px;
+    }
+
+    .footer-links {
+      flex-direction: column;
+      row-gap: 40px;
+    }
+
+    .footer-logo__text, .footer-contacts__text, .footer-menu__text {
+      display: none;
+    }
+  }
+
 </style>
+<script setup lang="ts">
+</script>

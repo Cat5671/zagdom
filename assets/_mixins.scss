@@ -6,3 +6,10 @@
   line-height: $line-height;
   letter-spacing: $letter-spacing;
 }
+
+@mixin btn-styles($height, $width) {
+  height: $height;
+  width: $width;
+  border-radius: 10px;
+  border: none;
+}

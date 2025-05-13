@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <Header/>
-    <main class="main-content"></main>
+      <main class="main-content"></main>
     <Footer/>
   </div>
 </template>
@@ -17,3 +17,5 @@
   flex-grow: 1;
 }
 </style>
+<script setup lang="ts">
+</script>
