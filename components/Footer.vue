@@ -44,7 +44,7 @@
       </div>
 
       <div style="display: flex; flex-direction: column; row-gap: 40px;">
-        <Button></Button>
+        <Button/>
         <div id=hidden-links>
           <p class="hidden-links__elem">© Загдом, 2021</p>
           <p class="hidden-links__elem">Политика конфиденциальности</p>
@@ -72,7 +72,7 @@
     row-gap: 24px;
   }
 
-  .footer-contacts__telephone, .footer-contacts__email, .footer-contacts__address {
+  .footer-contacts__list * {
     display: flex;
     align-items: flex-start;
     column-gap: 8px;

@@ -32,6 +32,7 @@
 
 <style scoped lang="scss">
 
+
 .header {
   margin-top: 24px;
   margin-bottom: 24px;
@@ -91,6 +92,10 @@
   .header-contacts__img, .header-contacts__telephone {
     display: none;
   }
+}
+
+#drawer-open-checkbox:hover {
+  cursor: pointer;
 }
 
 </style>

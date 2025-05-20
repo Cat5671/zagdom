@@ -12,7 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-.header, .footer-footer {
+.header, .footer-footer, .main {
   @media (min-width: 1060px) {
     margin-right: 88px;
     margin-left: 88px;
@@ -25,7 +25,7 @@ body {
 }
 
 .header-navigation__list {
-  @include font-styles(var(--font-secondary), 400, $gray, 16px, 120%, 0%);
+  @include font-styles(var(--font-secondary), 400, gray, 16px, 120%, 0%);
 }
 
 .header-contacts__telephone, .footer-contacts, .drawer-contacts {
@@ -33,7 +33,7 @@ body {
 }
 
 button {
-  @include font-styles(var(--font-primary), 400, $white, 14px, 100%, 0.15px);
+  @include font-styles(var(--font-primary), 400, white, 14px, 100%, 0.15px);
   background-color: $secondary;
   @include btn-styles(49px, 204px);
 }
@@ -52,15 +52,15 @@ ul {
 }
 
 .footer-contacts, .drawer-contacts {
-  color: $white;
+  color: white;
 }
 
 .footer-menu, .drawer-navigation {
-  @include font-styles(var(--font-secondary), 400, $white, 16px, 120%, 0%);
+  @include font-styles(var(--font-secondary), 400, white, 16px, 120%, 0%);
 }
 
 p {
-  @include font-styles(var(--font-secondary), 400, $white, 14px, 121%, 0%);
+  @include font-styles(var(--font-secondary), 400, white, 14px, 121%, 0%);
   opacity: 60%;
 }
 
@@ -87,4 +87,54 @@ p {
 .drawer__button {
   @include btn-styles(32px, 32px);
   background-color: $secondary;
+}
+
+figcaption h3 {
+  margin: 0;
+  @include font-styles(var(--font-primary), 700, white, 46px, 120%, 0%);
+  @media (max-width: 768px) {
+    font-size: 30px;
+  }
+}
+
+#text {
+  @include font-styles(var(--font-secondary), 400, white, 16px, 135%, 0%);
+  opacity: 1;
+
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.pagination-circle{
+  background-color: $gray;
+}
+
+.active {
+  background-color: $secondary;
+}
+
+.about-us__text h2 {
+  @include font-styles(var(--font-primary), 700, black, 38px, 120%, 0%);
+}
+
+#paragraph {
+  opacity: 1;
+  margin: 0;
+  @include font-styles(var(--font-secondary), 400, gray, 20px, 135%, 0%);
+}
+
+.cards__elem {
+  background-color: $white;
+}
+
+.cards__elem h3 {
+  @include font-styles(var(--font-primary), 400, black, 24px, 120%, 0%);
+  margin: 0;
+  padding-bottom: 8px;
+}
+
+figure img {
+  background-color: $primary;
 }

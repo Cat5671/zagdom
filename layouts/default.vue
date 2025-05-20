@@ -1,7 +1,9 @@
 <template>
   <div class="layout">
     <Header/>
-      <main class="main-content"></main>
+    <main class="main">
+      <NuxtPage />
+    </main>
     <Footer/>
   </div>
 </template>
@@ -13,9 +15,12 @@
   flex-flow: column;
 }
 
-.main-content {
+.main {
   flex-grow: 1;
+  padding: 40px 0px 61px 0px;
+  overflow: hidden;
 }
+
 </style>
 <script setup lang="ts">
 </script>
