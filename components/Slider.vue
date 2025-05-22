@@ -1,16 +1,16 @@
 <script setup>
-import slide1_portrait_1x from '../images/slide-1-portrait.jpg'
-import slide1_portrait_2x from '../images/slide-1-portrait@2x.jpg'
-import slide1_landscape_1x from '../images/slide-1-landscape.jpg'
-import slide1_landscape_2x from '../images/slide-1-landscape@2x.jpg'
-import slide2_portrait_1x from '../images/slide-2-portrait.jpg'
-import slide2_portrait_2x from '../images/slide-2-portrait@2x.jpg'
-import slide2_landscape_1x from '../images/slide-2-landscape.jpg'
-import slide2_landscape_2x from '../images/slide-2-landscape@2x.jpg'
-import slide3_portrait_1x from '../images/slide-3-portrait.jpg'
-import slide3_portrait_2x from '../images/slide-3-portrait@2x.jpg'
-import slide3_landscape_1x from '../images/slide-3-landscape.jpg'
-import slide3_landscape_2x from '../images/slide-3-landscape@2x.jpg'
+import slide1_portrait_1x from '../images/slider/slide-1-portrait.jpg'
+import slide1_portrait_2x from '../images/slider/slide-1-portrait@2x.jpg'
+import slide1_landscape_1x from '../images/slider/slide-1-landscape.jpg'
+import slide1_landscape_2x from '../images/slider/slide-1-landscape@2x.jpg'
+import slide2_portrait_1x from '../images/slider/slide-2-portrait.jpg'
+import slide2_portrait_2x from '../images/slider/slide-2-portrait@2x.jpg'
+import slide2_landscape_1x from '../images/slider/slide-2-landscape.jpg'
+import slide2_landscape_2x from '../images/slider/slide-2-landscape@2x.jpg'
+import slide3_portrait_1x from '../images/slider/slide-3-portrait.jpg'
+import slide3_portrait_2x from '../images/slider/slide-3-portrait@2x.jpg'
+import slide3_landscape_1x from '../images/slider/slide-3-landscape.jpg'
+import slide3_landscape_2x from '../images/slider/slide-3-landscape@2x.jpg'
 
   const slides = [
     {
@@ -114,7 +114,7 @@ import slide3_landscape_2x from '../images/slide-3-landscape@2x.jpg'
           <img :src='slide.image_portrait.x1' :alt='slide.title' />
         </picture>
         <figcaption>
-          <h3>{{slide.title}}</h3>
+          <h1>{{slide.title}}</h1>
           <p id="text">{{slide.text}}</p>
         </figcaption>
       </figure>

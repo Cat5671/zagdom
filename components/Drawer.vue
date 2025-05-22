@@ -1,8 +1,8 @@
 <template>
   <div id="drawer-backdrop" @click="closeMenu"></div>
   <div class="drawer">
-    <div class="drawer__form" style="position: relative">
-      <img src="../public/img/icons/cross.svg" alt="cross" style="position: absolute; margin: 10.75px 10.76px 10.78px;">
+    <div class="drawer__form">
+      <img src="../public/img/icons/cross.svg" alt="cross">
       <button id="drawer__button" @click="closeMenu"></button>
     </div>
 
@@ -71,7 +71,7 @@
     row-gap: 24px;
   }
 
-  .drawer-contacts__telephone, .drawer-contacts__email, .drawer-contacts__address {
+  .drawer-contacts * {
     display: flex;
     align-items: flex-start;
     column-gap: 8px;
@@ -97,6 +97,7 @@
   }
 
   .drawer__form {
+    position: relative;
     margin-left: 179px;
   }
 
@@ -119,6 +120,7 @@
   }
 
   #drawer-open-checkbox {
+
     &:checked {
       ~ .drawer {
         transform: translateX(0%);
@@ -142,6 +144,14 @@
     }
   }
 
+  .drawer-contacts {
+    color: white;
+  }
+
+  .drawer__form img {
+    position: absolute;
+    margin: 10.75px 10.76px 10.78px;
+  }
 </style>
 
 <script setup>

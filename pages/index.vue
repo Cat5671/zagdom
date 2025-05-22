@@ -24,6 +24,16 @@
       </div>
     </div>
   </section>
+  <section class="projects__section">
+    <Projects/>
+  </section>
+  <section class="news__section">
+    <header>
+      <h2>Новости</h2>
+      <a href="/news" class="button">Все новости</a>
+    </header>
+    <News/>
+  </section>
 </template>
 <style scoped>
 
@@ -31,6 +41,10 @@
     display: flex;
     flex-direction: column;
     row-gap: 40px;
+    margin-bottom: 120px;
+    @media (max-width: 1074px) {
+      margin-bottom: 40px;
+    }
   }
 
   h2 {
@@ -48,6 +62,9 @@
     justify-content: space-between;
     column-gap: 16px;
     flex-wrap: wrap;
+    @media (max-width: 1085px) {
+      justify-content: space-evenly;
+    }
   }
 
   .about-us__cards {
@@ -73,10 +90,34 @@
     }
   }
 
-  img {
+  .cards__elem img {
     margin-bottom: 24px;
   }
 
+  .news__section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    margin-top: 80px;
+    @media (max-width: 769px) {
+      row-gap: 22px;
+    }
+  }
+
+  .news__section header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header a {
+    text-decoration: none;
+    width: 91.4px;
+    height: 15.4px;
+    border-radius: 10px;
+    padding: 16px 24px;
+  }
+
 </style>
-<script setup lang="ts">
+<script setup>
 </script>

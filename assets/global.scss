@@ -12,7 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-.header, .footer-footer, .main {
+.header, .footer-footer, .about-us__section, .news__section{
   @media (min-width: 1060px) {
     margin-right: 88px;
     margin-left: 88px;
@@ -24,11 +24,11 @@ body {
   }
 }
 
-.header-navigation__list {
+.header-navigation__list, .news__item p {
   @include font-styles(var(--font-secondary), 400, gray, 16px, 120%, 0%);
 }
 
-.header-contacts__telephone, .footer-contacts, .drawer-contacts {
+.header-contacts__telephone, .footer-contacts, .drawer-contacts, span {
   @include font-styles(var(--font-primary), 400, $primary, 14px, 120%, 0%);
 }
 
@@ -48,24 +48,14 @@ ul {
 
 .footer {
   background-color: $primary;
-  flex-shrink: 0;
 }
 
-.footer-contacts, .drawer-contacts {
-  color: white;
-}
-
-.footer-menu, .drawer-navigation {
+.footer-menu, .drawer-navigation,  {
   @include font-styles(var(--font-secondary), 400, white, 16px, 120%, 0%);
 }
 
 p {
   @include font-styles(var(--font-secondary), 400, white, 14px, 121%, 0%);
-  opacity: 60%;
-}
-
-.header-contacts__telephone, .footer-contacts__telephone address {
-  width: 134px;
 }
 
 .drawer {
@@ -74,8 +64,6 @@ p {
 
 #drawer-open-checkbox {
   @include btn-styles(46px, 56px);
-  margin: 0;
-  opacity: 0;
 }
 
 .header-contacts__form {
@@ -89,7 +77,7 @@ p {
   background-color: $secondary;
 }
 
-figcaption h3 {
+figcaption h1 {
   margin: 0;
   @include font-styles(var(--font-primary), 700, white, 46px, 120%, 0%);
   @media (max-width: 768px) {
@@ -99,8 +87,6 @@ figcaption h3 {
 
 #text {
   @include font-styles(var(--font-secondary), 400, white, 16px, 135%, 0%);
-  opacity: 1;
-
 }
 
 button:hover {
@@ -115,14 +101,21 @@ button:hover {
   background-color: $secondary;
 }
 
-.about-us__text h2 {
+.about-us__text h2, .projects h2, .news__section h2 {
   @include font-styles(var(--font-primary), 700, black, 38px, 120%, 0%);
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
 }
 
 #paragraph {
-  opacity: 1;
   margin: 0;
   @include font-styles(var(--font-secondary), 400, gray, 20px, 135%, 0%);
+}
+
+#drawer-open-checkbox {
+  opacity: 0;
+  margin: 0;
 }
 
 .cards__elem {
@@ -137,4 +130,22 @@ button:hover {
 
 figure img {
   background-color: $primary;
+}
+
+.projects {
+  background-color: $white;
+}
+
+.cards__elem #header, h4 {
+  @include font-styles(var(--font-primary), 400, black, 20px, 120%, 0%);
+}
+
+.cards__elem p {
+  @include font-styles(var(--font-secondary), 400, gray, 16px, 135%, 0%);
+  margin: 0;
+}
+
+.button {
+  border: 1px solid $secondary;
+  @include font-styles(var(--font-primary), 600, $secondary, 14px, 100%, 0px);
 }

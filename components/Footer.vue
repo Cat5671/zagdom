@@ -100,6 +100,7 @@
 
   .footer-contacts {
     margin-top: 15.5px;
+    color: white;
   }
 
   .footer-menu, .footer-logo, .footer-contacts {
@@ -171,6 +172,17 @@
     }
   }
 
+  footer {
+    flex-shrink: 0;
+  }
+
+  p {
+    opacity: 60%;
+  }
+
+  .footer-contacts__telephone address {
+    width: 134px;
+  }
 </style>
 <script setup lang="ts">
 </script>

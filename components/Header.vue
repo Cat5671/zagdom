@@ -98,6 +98,10 @@
   cursor: pointer;
 }
 
+.header-contacts__telephone {
+  width: 134px;
+}
+
 </style>
 
 <script setup>
