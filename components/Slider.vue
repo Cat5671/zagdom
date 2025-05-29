@@ -12,7 +12,12 @@ import slide3_portrait_2x from '../images/slider/slide-3-portrait@2x.jpg'
 import slide3_landscape_1x from '../images/slider/slide-3-landscape.jpg'
 import slide3_landscape_2x from '../images/slider/slide-3-landscape@2x.jpg'
 
-  const slides = [
+
+import { ref } from "vue";
+import PaginationCircle from "~/components/PaginationCircle.vue";
+
+
+const slides = [
     {
       image_portrait: {
         x1: slide1_portrait_1x,
@@ -54,8 +59,10 @@ import slide3_landscape_2x from '../images/slider/slide-3-landscape@2x.jpg'
     }
   ]
 
-  let counter = 0;
-  let touchStartX = 0;
+  const counter = ref(0);
+  const touchStartX = ref(0);
+  const touchEndX = ref(0);
+  const touchDiff = ref(0);
 
   function changeSlide(prevIndex, currentIndex) {
     document.querySelectorAll('.slide')[prevIndex].style.display = 'none';
@@ -64,32 +71,50 @@ import slide3_landscape_2x from '../images/slider/slide-3-landscape@2x.jpg'
     document.querySelectorAll('.pagination-circle')[currentIndex].classList.add('active');
   }
 
+  function removeButtonClass(sliderButton, arrow) {
+    document.querySelector(sliderButton).classList.remove('disabled');
+    document.querySelector(arrow).classList.remove('disabled_arrow');
+  }
+
+  function addButtonClass(sliderButton, arrow) {
+    document.querySelector(sliderButton).classList.add('disabled');
+    document.querySelector(arrow).classList.add('disabled_arrow');
+  }
+
   const moveRight = function () {
-    if (counter === 0 || counter === 1) {
-      counter++;
-      changeSlide(counter - 1, counter);
+    if (counter.value === 0 || counter.value === 1) {
+      counter.value++;
+      changeSlide(counter.value - 1, counter.value);
+      removeButtonClass('button:first-child', 'button div:first-child');
+    }
+    if (counter.value === 2) {
+      addButtonClass('.button-right', '.button-right div:last-child');
     }
   }
 
   const moveLeft = function () {
-    if (counter === 1 || counter === 2) {
-      counter--;
-      changeSlide(counter + 1, counter);
+    if (counter.value === 1 || counter.value === 2) {
+      counter.value--;
+      changeSlide(counter.value + 1, counter.value);
+      removeButtonClass('.button-right', '.button-right div:last-child');
+    }
+    if (counter.value === 0) {
+      addButtonClass('button:first-child', 'button div:first-child');
     }
   }
 
   const handleTouchStart = (event) => {
-    touchStartX = event.touches[0].clientX;
+    touchStartX.value = event.touches[0].clientX;
   };
 
   const handleTouchEnd = (event) => {
-    let touchEndX = event.changedTouches[0].clientX;
-    let touchDiff = touchStartX - touchEndX;
+    touchEndX.value = event.changedTouches[0].clientX;
+    touchDiff.value = touchStartX.value - touchEndX.value;
 
-    if (touchDiff > 50) {
+    if (touchDiff.value > 50) {
       moveRight();
     }
-    else if (touchDiff < -50) {
+    else if (touchDiff.value < -50) {
       moveLeft();
     }
   };
@@ -100,7 +125,7 @@ import slide3_landscape_2x from '../images/slider/slide-3-landscape@2x.jpg'
 <template>
   <div class="slider" @touchstart="handleTouchStart"
        @touchend="handleTouchEnd">
-    <button class="slider__button arrow-left" @click="moveLeft"></button>
+    <ArrowButton class="disabled" @click="moveLeft"/>
     <div class="slider__slide">
       <figure v-for='slide in slides' class="slide">
         <picture>
@@ -120,11 +145,11 @@ import slide3_landscape_2x from '../images/slider/slide-3-landscape@2x.jpg'
       </figure>
     </div>
     <div class="slider__pagination">
-      <div class="pagination-circle active"></div>
-      <div class="pagination-circle"></div>
-      <div class="pagination-circle"></div>
+      <PaginationCircle class="active"/>
+      <PaginationCircle/>
+      <PaginationCircle/>
     </div>
-    <button class="slider__button arrow-right" @click="moveRight"></button>
+    <ArrowButton class="button-right"  @click="moveRight"/>
   </div>
 </template>
 
@@ -156,6 +181,7 @@ import slide3_landscape_2x from '../images/slider/slide-3-landscape@2x.jpg'
   figure:first-child {
     display: block;
   }
+
   figcaption {
     display: flex;
     flex-direction: column;
@@ -174,24 +200,18 @@ import slide3_landscape_2x from '../images/slider/slide-3-landscape@2x.jpg'
   }
 
   button {
-    width: 48px;
-    height: 48px;
     position: absolute;
     z-index: 6;
-    padding: 0;
     margin: 0px 16px;
-    background-image: url("../public/img/icons/arrow.svg");
-    background-repeat: no-repeat;
-    background-position: center;
   }
 
-  .arrow-right {
-    right: 0;
-  }
-
-  .arrow-left {
+  button:first-child {
     left: 0;
     transform: scale(-1);
+  }
+
+  button:last-child {
+    right: 0;
   }
 
   .slider__slide {
@@ -207,19 +227,14 @@ import slide3_landscape_2x from '../images/slider/slide-3-landscape@2x.jpg'
     column-gap: 16px;
   }
 
-  .pagination-circle {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-  }
 
-  @media (max-width: 768px) {
+  @media (max-width: 769px) {
     figcaption {
       padding-inline: 24px;
       padding-bottom: 30px;
     }
 
-    button, .pagination-circle {
+    button {
       display: none;
     }
   }

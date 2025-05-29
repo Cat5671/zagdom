@@ -28,7 +28,7 @@ body {
   @include font-styles(var(--font-secondary), 400, gray, 16px, 120%, 0%);
 }
 
-.header-contacts__telephone, .footer-contacts, .drawer-contacts, span {
+.header-contacts__telephone, .footer-contacts, .drawer-contacts, .news__date {
   @include font-styles(var(--font-primary), 400, $primary, 14px, 120%, 0%);
 }
 
@@ -56,10 +56,6 @@ ul {
 
 p {
   @include font-styles(var(--font-secondary), 400, white, 14px, 121%, 0%);
-}
-
-.drawer {
-  background-color: $secondary;
 }
 
 #drawer-open-checkbox {
@@ -93,14 +89,6 @@ button:hover {
   cursor: pointer;
 }
 
-.pagination-circle{
-  background-color: $gray;
-}
-
-.active {
-  background-color: $secondary;
-}
-
 .about-us__text h2, .projects h2, .news__section h2 {
   @include font-styles(var(--font-primary), 700, black, 38px, 120%, 0%);
   @media (max-width: 768px) {
@@ -108,7 +96,7 @@ button:hover {
   }
 }
 
-#paragraph {
+#paragraph, .news-page__text {
   margin: 0;
   @include font-styles(var(--font-secondary), 400, gray, 20px, 135%, 0%);
 }
@@ -148,4 +136,40 @@ figure img {
 .button {
   border: 1px solid $secondary;
   @include font-styles(var(--font-primary), 600, $secondary, 14px, 100%, 0px);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.news-page__text span {
+  color: $secondary;
+}
+
+.active_nav {
+  color: $secondary;
+  pointer-events: none;
+}
+
+.buttons__num button:active {
+  background-color: $primary;
+  border: 1px solid $primary;
+  color: white;
+}
+
+.buttons__num button {
+  background-color: white;
+  border: 1px solid #9D9C9C;
+  @include font-styles(var(--font-primary), 600, $primary, 16px, 100%, 0.15px);
+}
+
+.buttons__num button:hover {
+  background-color: lightgray;
+  border: 1px solid $secondary;
+  color: $secondary;
+}
+
+.disabled .arrow:first-child {
+  background-color: #D7D7D7;
 }

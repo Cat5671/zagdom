@@ -10,8 +10,8 @@
 
       <nav class="drawer-navigation">
         <ul class="drawer-navigation__list">
-          <li><a>Реализованные проекты</a></li>
-          <li><a>Новости</a></li>
+          <li><NuxtLink to="/#projects" @click="closeMenu">Реализованные проекты</NuxtLink></li>
+          <li><NuxtLink to="/news" @click="closeMenu">Новости</NuxtLink></li>
           <li><a>Контакты</a></li>
         </ul>
       </nav>
@@ -39,8 +39,12 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+  @use '../assets/colors' as *;
+  @use '../assets/mixins' as *;
+
   .drawer {
+    background-color: $secondary;
     height: calc(100% - 54px - 31px);
     padding: 31px 0px 54px 21px;
     max-width: 600px;

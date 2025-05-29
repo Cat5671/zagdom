@@ -8,9 +8,9 @@
 
       <nav class="header-navigation">
         <ul class="header-navigation__list">
-          <li><a>Реализованные проекты</a></li>
-          <li><a>Новости</a></li>
-          <li><a>Контакты</a></li>
+          <li><NuxtLink to="/#projects">Реализованные проекты</NuxtLink></li>
+          <li><NuxtLink to="/news" сlass="news_nav" :class="{ active_nav: activeLink === '/news' }" @click="changePage('/news')">Новости</NuxtLink></li>
+          <li><a href="#" :class="{ active_nav: activeLink === '#' }" @click.prevent="changePage('#')">Контакты</a></li>
         </ul>
       </nav>
     </div>
@@ -105,8 +105,19 @@
 </style>
 
 <script setup>
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+
+
+const activeLink = ref('');
 
 const openMenu = () => {
   document.body.style.overflowY = "hidden";
 }
+
+const changePage = (link) => {
+  activeLink.value = link;
+};
+
+
 </script>

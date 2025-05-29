@@ -33,7 +33,7 @@
 </script>
 
 <template>
-  <div class="projects">
+  <div class="projects" id="projects">
     <h2>Реализованные проекты</h2>
     <div class="projects__cards cards">
       <div v-for='project in projects' class="cards__elem">

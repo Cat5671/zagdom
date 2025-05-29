@@ -80,4 +80,8 @@ const news = [
     width: 0;
     height: 0;
   }
+
+  ul {
+    scrollbar-width: none;
+  }
 </style>

@@ -12,8 +12,8 @@
         <div class="footer-menu">
           <nav class="footer-navigation">
             <ul class="footer-navigation__list">
-              <li><a>Реализованные проекты</a></li>
-              <li><a>Новости</a></li>
+              <li><NuxtLink href="#projects">Реализованные проекты</NuxtLink></li>
+              <li><NuxtLink to="/news">Новости</NuxtLink></li>
               <li><a>Контакты</a></li>
             </ul>
           </nav>

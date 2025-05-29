@@ -30,7 +30,7 @@
   <section class="news__section">
     <header>
       <h2>Новости</h2>
-      <a href="/news" class="button">Все новости</a>
+      <NuxtLink to="/news" class="button">Все новости</NuxtLink>
     </header>
     <News/>
   </section>
@@ -111,7 +111,6 @@
   }
 
   header a {
-    text-decoration: none;
     width: 91.4px;
     height: 15.4px;
     border-radius: 10px;
