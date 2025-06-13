@@ -12,7 +12,7 @@
         <div class="footer-menu">
           <nav class="footer-navigation">
             <ul class="footer-navigation__list">
-              <li><NuxtLink href="#projects">Реализованные проекты</NuxtLink></li>
+              <li><NuxtLink href="/#projects">Реализованные проекты</NuxtLink></li>
               <li><NuxtLink to="/news">Новости</NuxtLink></li>
               <li><a>Контакты</a></li>
             </ul>
@@ -43,8 +43,10 @@
         </div>
       </div>
 
-      <div style="display: flex; flex-direction: column; row-gap: 40px;">
-        <Button/>
+      <div class="footer-footer__button">
+        <Dialog v-model:open="dialogOpened"/>
+        <Button @click='dialogOpened = true'/>
+
         <div id=hidden-links>
           <p class="hidden-links__elem">© Загдом, 2021</p>
           <p class="hidden-links__elem">Политика конфиденциальности</p>
@@ -58,13 +60,28 @@
 
 <style scoped>
 
-  .footer-footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 31.5px;
-    margin-bottom: 33px;
-    flex-wrap: wrap;
+.footer-footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "logo links button";
+  justify-content: space-between;
+  margin-top: 31.5px;
+  margin-bottom: 33px;
+
+  @media (max-width: 990px) {
+    grid-template-areas:
+      "logo links "
+      "button . "
   }
+
+  @media (max-width: 750px) {
+    grid-template-areas:
+    "logo"
+    "links"
+    "button"
+  }
+}
 
   .footer-navigation__list, .footer-contacts__list{
     display: flex;
@@ -80,22 +97,18 @@
 
   .footer-navigation__list {
     padding: 0;
+    margin-right: 32px;
   }
 
   .footer-logo {
+    width: 160px;
+    grid-area: logo;
     margin-top: 5.5px;
-
-    @media (max-width: 1200px) {
-      margin-right: 40px;
-    }
   }
 
   .footer-menu {
     margin-top: 1px;
-
-    @media (min-width: 1200px) {
-      margin-right: 90px;
-    }
+    align-items: flex-end;
   }
 
   .footer-contacts {
@@ -115,38 +128,39 @@
   }
 
   .footer-links {
-    display: flex;
-    @media (max-width: 1280px) {
-      max-width: 550px;
-      min-width: 490px;
-      justify-content: space-between;
-    }
-
-    @media (min-width: 1280px) {
-      margin-right: 90px;
+    flex-wrap: wrap;
+    grid-area: links;
+    column-gap: 90px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-evenly;
+    @media (max-width: 1200px) {
+      column-gap: 40px;
     }
   }
 
-  .footer-menu__text {
-    margin-left: 6px;
+  .footer-footer__button {
+    grid-area: button;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
   }
 
   #hidden-links {
     display: flex;
     flex-direction: column;
     row-gap: 16px;
-    @media (min-width: 530px) {
+    @media (min-width: 550px) {
       display: none;
     }
   }
-
 
   .hidden-links__elem {
     margin-top: 0px;
     margin-bottom: 0px;
   }
 
-  @media (max-width: 530px) {
+  @media (max-width: 550px) {
 
     .footer-footer {
       margin: 40px 0px 40.46px 40px;
@@ -163,7 +177,7 @@
     }
 
     .footer-links {
-      flex-direction: column;
+      grid-template-columns: 1fr;
       row-gap: 40px;
     }
 
@@ -184,5 +198,10 @@
     width: 134px;
   }
 </style>
+
 <script setup lang="ts">
+import Dialog from "~/components/Dialog.vue";
+
+const dialogOpened = ref(false);
+
 </script>

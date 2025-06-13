@@ -1,6 +1,5 @@
 <template>
   <header class="header">
-
     <div class="header__container">
       <div class="header-logo">
         <img src="../public/img/logo.svg" alt="logo">
@@ -18,12 +17,13 @@
     <div class="header-contacts">
       <img src="../public/img/icons/telephone.svg" alt="telephone" class="header-contacts__img">
       <address class="header-contacts__telephone" style="margin-right: 16px;">+7 (900) 900-90-90</address>
-      <Button class="header-contacts__button"></Button>
+      <Dialog v-model:open="dialogOpened"/>
+      <Button @click='dialogOpened = true' class="header-contacts__button"/>
 
       <div class="header-contacts__form">
         <input id="drawer-open-checkbox" type="checkbox" @click="openMenu">
         <label for="drawer-open-checkbox"></label>
-        <Drawer/>
+        <Drawer style="display: none;"/>
       </div>
 
     </div>
@@ -105,19 +105,20 @@
 </style>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref } from 'vue';
+import Dialog from "~/components/Dialog.vue";
 
 
 const activeLink = ref('');
 
 const openMenu = () => {
   document.body.style.overflowY = "hidden";
+  document.body.style.pointerEvents = "none";
 }
 
 const changePage = (link) => {
   activeLink.value = link;
 };
 
-
+const dialogOpened = ref(false);
 </script>

@@ -173,3 +173,19 @@ a {
 .disabled .arrow:first-child {
   background-color: #D7D7D7;
 }
+
+.DialogTitle {
+  @include font-styles(var(--font-primary), 700, #2B2F34, 32px, 160%, 0%);
+  @media (max-width: 769px) {
+    font-size: 30px;
+  }
+}
+
+input[placeholder] {
+  @include font-styles(var(--font-primary), 600, black, 16px, 150%, 0.15px);
+  padding: 16.5px;
+}
+
+::placeholder {
+  @include font-styles(var(--font-primary), 400, #9D9C9C, 14px, 180%, 0px);
+}

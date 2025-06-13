@@ -85,7 +85,7 @@ const slides = [
     if (counter.value === 0 || counter.value === 1) {
       counter.value++;
       changeSlide(counter.value - 1, counter.value);
-      removeButtonClass('button:first-child', 'button div:first-child');
+      removeButtonClass('.button-left', 'button div:first-child');
     }
     if (counter.value === 2) {
       addButtonClass('.button-right', '.button-right div:last-child');
@@ -99,7 +99,7 @@ const slides = [
       removeButtonClass('.button-right', '.button-right div:last-child');
     }
     if (counter.value === 0) {
-      addButtonClass('button:first-child', 'button div:first-child');
+      addButtonClass('.button-left', 'button div:first-child');
     }
   }
 
@@ -125,7 +125,7 @@ const slides = [
 <template>
   <div class="slider" @touchstart="handleTouchStart"
        @touchend="handleTouchEnd">
-    <ArrowButton class="disabled" @click="moveLeft"/>
+    <ArrowButton class="button-left disabled" @click="moveLeft"/>
     <div class="slider__slide">
       <figure v-for='slide in slides' class="slide">
         <picture>
