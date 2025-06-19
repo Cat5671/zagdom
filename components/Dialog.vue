@@ -81,6 +81,8 @@ const emit = defineEmits(['update:open', 'close']);
   border-radius: 6px;
   position: absolute;
   opacity: 40%;
+  background-color: $secondary;
+  border: none;
 }
 
 .modal__cross {

@@ -12,7 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-.header, .footer-footer, .about-us__section, .news__section{
+.header, .footer-footer, .about-us__section, .news__section, .contacts{
   @media (min-width: 1060px) {
     margin-right: 88px;
     margin-left: 88px;
@@ -28,14 +28,12 @@ body {
   @include font-styles(var(--font-secondary), 400, gray, 16px, 120%, 0%);
 }
 
-.header-contacts__telephone, .footer-contacts, .drawer-contacts, .news__date {
+.contacts__link, .contacts__list, .drawer-contacts, .news__date {
   @include font-styles(var(--font-primary), 400, $primary, 14px, 120%, 0%);
 }
 
 button {
-  @include font-styles(var(--font-primary), 400, white, 14px, 100%, 0.15px);
-  background-color: $secondary;
-  @include btn-styles(49px, 204px);
+  @include font-styles(var(--font-primary), 400, black, 14px, 100%, 0.15px);
 }
 
 address {
@@ -73,7 +71,7 @@ p {
   background-color: $secondary;
 }
 
-figcaption h1 {
+h1 {
   margin: 0;
   @include font-styles(var(--font-primary), 700, white, 46px, 120%, 0%);
   @media (max-width: 768px) {
@@ -89,14 +87,14 @@ button:hover {
   cursor: pointer;
 }
 
-.about-us__text h2, .projects h2, .news__section h2 {
+.about-us__text h2, .projects h2 {
   @include font-styles(var(--font-primary), 700, black, 38px, 120%, 0%);
   @media (max-width: 768px) {
     font-size: 28px;
   }
 }
 
-#paragraph, .news-page__text {
+#paragraph, .breadcrumbs {
   margin: 0;
   @include font-styles(var(--font-secondary), 400, gray, 20px, 135%, 0%);
 }
@@ -143,10 +141,6 @@ a {
   color: inherit;
 }
 
-.news-page__text span {
-  color: $secondary;
-}
-
 .active_nav {
   color: $secondary;
   pointer-events: none;
@@ -188,4 +182,20 @@ input[placeholder] {
 
 ::placeholder {
   @include font-styles(var(--font-primary), 400, #9D9C9C, 14px, 180%, 0px);
+}
+
+.contacts__container #phone {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  width: 196px;
+  @media (max-width: 769px) {
+    font-size: 18px;
+  }
+}
+
+.contacts__container img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
 }

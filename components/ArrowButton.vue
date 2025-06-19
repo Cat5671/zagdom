@@ -8,8 +8,7 @@
 
   button {
     background-color: white;
-    width: 46px;
-    height: 46px;
+    @include btn-styles(46px, 46px);
     border: 1px solid $secondary;
     padding: 0;
   }

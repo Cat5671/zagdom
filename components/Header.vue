@@ -7,16 +7,17 @@
 
       <nav class="header-navigation">
         <ul class="header-navigation__list">
-          <li><NuxtLink to="/#projects">Реализованные проекты</NuxtLink></li>
-          <li><NuxtLink to="/news" сlass="news_nav" :class="{ active_nav: activeLink === '/news' }" @click="changePage('/news')">Новости</NuxtLink></li>
-          <li><a href="#" :class="{ active_nav: activeLink === '#' }" @click.prevent="changePage('#')">Контакты</a></li>
+          <li><NuxtLink to="/#projects" @click="changePage('/projects')">Реализованные проекты</NuxtLink></li>
+          <li><NuxtLink to="/news" :class="{ active_nav: activeLink === '/news' }"
+                        @click="changePage('/news')">Новости</NuxtLink></li>
+          <li><NuxtLink to="/contacts" :class="{ active_nav: activeLink === '/contacts' }"
+                        @click="changePage('/contacts')">Контакты</NuxtLink></li>
         </ul>
       </nav>
     </div>
 
     <div class="header-contacts">
-      <img src="../public/img/icons/telephone.svg" alt="telephone" class="header-contacts__img">
-      <address class="header-contacts__telephone" style="margin-right: 16px;">+7 (900) 900-90-90</address>
+      <TelephoneContact id="telephone" style="padding-right: 16px;"/>
       <Dialog v-model:open="dialogOpened"/>
       <Button @click='dialogOpened = true' class="header-contacts__button"/>
 
@@ -31,8 +32,6 @@
 </template>
 
 <style scoped lang="scss">
-
-
 .header {
   margin-top: 24px;
   margin-bottom: 24px;
@@ -48,10 +47,6 @@
   column-gap: 24px;
   align-items: center;
   flex-wrap: wrap;
-
-  @media (max-width: 870px) {
-    display: none;
-  }
 }
 
 .header-contacts {
@@ -86,10 +81,14 @@
     .header-contacts__form {
       display: block;
     }
+
+    .header-navigation__list {
+      display: none;
+    }
 }
 
 @media (max-width: 470px) {
-  .header-contacts__img, .header-contacts__telephone {
+  .header-contacts__img, #telephone {
     display: none;
   }
 }
@@ -97,19 +96,16 @@
 #drawer-open-checkbox:hover {
   cursor: pointer;
 }
-
-.header-contacts__telephone {
-  width: 134px;
-}
-
 </style>
 
 <script setup>
+import {mockContacts} from "~/mock/contacts.js";
 import { ref } from 'vue';
 import Dialog from "~/components/Dialog.vue";
 
 
 const activeLink = ref('');
+const { phone } = mockContacts;
 
 const openMenu = () => {
   document.body.style.overflowY = "hidden";
@@ -117,6 +113,9 @@ const openMenu = () => {
 }
 
 const changePage = (link) => {
+  if (link === '/#projects') {
+    document.querySelector(".active_nav").classList.remove("active_nav");
+  }
   activeLink.value = link;
 };
 

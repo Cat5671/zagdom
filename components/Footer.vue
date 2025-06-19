@@ -21,24 +21,7 @@
         </div>
 
         <div class="footer-contacts">
-          <div class="footer-contacts__list">
-
-            <div class="footer-contacts__telephone">
-              <img src="../public/img/icons/telephone.svg" alt="telephone">
-              <address>+7 (900) 900-90-90</address>
-            </div>
-
-            <div class="footer-contacts__email">
-              <img src="../public/img/icons/email.svg" alt="email">
-              <address>info@gmail.com</address>
-            </div>
-
-            <div class="footer-contacts__address">
-              <img src="../public/img/icons/address.svg" alt="address">
-              <address>г. Владивосток <br>ул. Выселковая 49, стр. 3</address>
-            </div>
-
-          </div>
+          <Contacts class="c"/>
           <p class="footer-contacts__text">Пользовательское соглашение</p>
         </div>
       </div>
@@ -83,16 +66,10 @@
   }
 }
 
-  .footer-navigation__list, .footer-contacts__list{
+  .footer-navigation__list {
     display: flex;
     flex-direction: column;
     row-gap: 24px;
-  }
-
-  .footer-contacts__list * {
-    display: flex;
-    align-items: flex-start;
-    column-gap: 8px;
   }
 
   .footer-navigation__list {
@@ -109,6 +86,9 @@
   .footer-menu {
     margin-top: 1px;
     align-items: flex-end;
+    @media (max-width: 750px) {
+      align-items: flex-start;
+    }
   }
 
   .footer-contacts {
@@ -194,8 +174,8 @@
     opacity: 60%;
   }
 
-  .footer-contacts__telephone address {
-    width: 134px;
+  .c * {
+    color: white;
   }
 </style>
 

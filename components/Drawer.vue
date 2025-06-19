@@ -43,6 +43,11 @@
   @use '../assets/colors' as *;
   @use '../assets/mixins' as *;
 
+  button {
+    border: none;
+    border-radius: 6px;
+  }
+
   .drawer {
     background-color: $secondary;
     height: calc(100% - 54px - 31px);
@@ -162,5 +167,6 @@
   const closeMenu = () => {
     document.getElementById("drawer-open-checkbox").checked = false;
     document.body.style.overflowY = "visible";
+    document.body.style.pointerEvents = "auto";
   };
 </script>

@@ -1,0 +1,26 @@
+<script setup lang="ts">
+import { mockContacts } from "@/mock/contacts";
+
+const { phone } = mockContacts;
+
+</script>
+
+<template>
+  <div class="contacts__telephone">
+    <img src="../public/img/icons/telephone.svg" alt="telephone">
+    <a class="contacts__link" :href='`tel:${phone.value}`' id="phone">{{ phone.label }}</a>
+  </div>
+</template>
+
+<style scoped>
+  .contacts__telephone {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 8px;
+  }
+
+.contacts__link {
+  width: 134px;
+}
+
+</style>

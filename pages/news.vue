@@ -1,11 +1,12 @@
-<script setup lang="ts">
-
+<script setup>
+  import BreadCrumbs from "~/components/BreadCrumbs.vue";
 </script>
 
 <template>
   <section class="news__section news-page">
-    <h4 class="news-page__text"><span>Главная</span> / Новости</h4>
-    <h2 class="news-page__header">Новости</h2>
+    <BreadCrumbs currentPage = "Новости"/>
+
+    <h1 class="news-page__header">Новости</h1>
     <div class="news-page__cards">
       <News/>
       <News/>
@@ -26,13 +27,16 @@
 
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+  @use '../assets/mixins' as *;
+
   h4 {
     padding: 0;
     margin: 0px 0px 48px 0px;
   }
 
-  h2 {
+  h1 {
+    color: black;
     margin: 0;
     padding-bottom: 16px;
   }
@@ -77,6 +81,14 @@
     .news-page__buttons div button:nth-child(even) {
       display: none;
     }
+
+    h1 {
+      font-size: 32px;
+    }
+  }
+
+  .buttons__num * {
+    border-radius: 10px;
   }
 
   button:first-child {
