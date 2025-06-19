@@ -7,7 +7,7 @@ const { phone } = mockContacts;
 
 <template>
   <div class="contacts__telephone">
-    <img src="../public/img/icons/telephone.svg" alt="telephone">
+    <div class="telephone"></div>
     <a class="contacts__link" :href='`tel:${phone.value}`' id="phone">{{ phone.label }}</a>
   </div>
 </template>
@@ -21,6 +21,14 @@ const { phone } = mockContacts;
 
 .contacts__link {
   width: 134px;
+}
+
+.telephone {
+  mask-image: url(../public/img/icons/telephone.svg);
+  height: 16px;
+  width: 16px;
+  background-color: #029F59;
+  display: block;
 }
 
 </style>

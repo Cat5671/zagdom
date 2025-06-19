@@ -1,5 +1,4 @@
 <template>
-  <div id="drawer-backdrop" @click="closeMenu"></div>
   <div class="drawer">
     <div class="drawer__form">
       <img src="../public/img/icons/cross.svg" alt="cross">
@@ -12,31 +11,18 @@
         <ul class="drawer-navigation__list">
           <li><NuxtLink to="/#projects" @click="closeMenu">Реализованные проекты</NuxtLink></li>
           <li><NuxtLink to="/news" @click="closeMenu">Новости</NuxtLink></li>
-          <li><a>Контакты</a></li>
+          <li><NuxtLink to="/contacts" @click="closeMenu">Контакты</NuxtLink></li>
         </ul>
       </nav>
 
       <div class="drawer-contacts">
-
-        <div class="drawer-contacts__telephone">
-          <div class="telephone"></div>
-          <address>+7 (900) 900-90-90</address>
-        </div>
-
-        <div class="drawer-contacts__email">
-          <div class="email"></div>
-          <address>info@gmail.com</address>
-        </div>
-
-        <div class="drawer-contacts__address">
-          <div class="address"></div>
-          <address>г. Владивосток <br>ул. Выселковая 49, стр. 3</address>
-        </div>
-
+        <Contacts id="contacts"/>
       </div>
 
     </div>
   </div>
+
+  <div id="drawer-backdrop" @click="closeMenu"></div>
 </template>
 
 <style scoped lang="scss">
@@ -66,43 +52,19 @@
   }
 
   .drawer__element {
-    height: 100%;
+    height: calc(100% - 42px);
+    margin: 42px 0px 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
 
-  .drawer-navigation__list, .drawer-contacts{
+  .drawer-navigation__list {
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     row-gap: 24px;
-  }
-
-  .drawer-contacts * {
-    display: flex;
-    align-items: flex-start;
-    column-gap: 8px;
-  }
-
-  .telephone, .email, .address {
-    height: 16px;
-    width: 16px;
-    background-color: white;
-    display: block;
-  }
-
-  .telephone {
-    mask-image: url(../public/img/icons/telephone.svg);
-  }
-
-  .email {
-    mask-image: url(../public/img/icons/email.svg);
-  }
-
-  .address {
-    mask-image: url(../public/img/icons/address.svg);
   }
 
   .drawer__form {
@@ -133,6 +95,8 @@
     &:checked {
       ~ .drawer {
         transform: translateX(0%);
+        display: block;
+        pointer-events: auto;
       }
 
       ~ #drawer-backdrop {
@@ -144,6 +108,7 @@
     &:not(:checked) {
       ~ .drawer {
         transform: translateX(100%);
+        display: none;
       }
 
       ~ #drawer-backdrop {
@@ -151,10 +116,6 @@
         pointer-events: none;
       }
     }
-  }
-
-  .drawer-contacts {
-    color: white;
   }
 
   .drawer__form img {

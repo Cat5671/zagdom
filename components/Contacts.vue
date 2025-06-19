@@ -11,12 +11,12 @@ const { email, address } = mockContacts;
     <TelephoneContact/>
 
     <div class="contacts__email">
-      <img src="../public/img/icons/email.svg" alt="email">
+      <div class="email"></div>
       <a :href='`mailto:${email}`'>{{ email }}</a>
     </div>
 
     <div class="contacts__address">
-      <img src="../public/img/icons/address.svg" alt="address">
+      <div class="address"></div>
       <address v-html="address"></address>
     </div>
 
@@ -38,4 +38,18 @@ const { email, address } = mockContacts;
   column-gap: 8px;
 }
 
+.email {
+  mask-image: url(../public/img/icons/email.svg);
+}
+
+.address {
+  mask-image: url(../public/img/icons/address.svg);
+}
+
+.email, .address {
+  height: 16px;
+  width: 16px;
+  background-color: #029F59;
+  display: block;
+}
 </style>

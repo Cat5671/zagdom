@@ -105,7 +105,6 @@ import Dialog from "~/components/Dialog.vue";
 
 
 const activeLink = ref('');
-const { phone } = mockContacts;
 
 const openMenu = () => {
   document.body.style.overflowY = "hidden";
