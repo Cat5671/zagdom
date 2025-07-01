@@ -188,7 +188,7 @@ a {
   }
 }
 
-input[placeholder] {
+input[placeholder], textarea[placeholder] {
   @include font-styles(var(--font-primary), 600, black, 16px, 150%, 0.15px);
   padding: 16.5px;
 }

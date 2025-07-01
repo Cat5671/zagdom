@@ -5,8 +5,8 @@ import {
   DialogOverlay,
   DialogPortal,
   DialogRoot,
-  DialogTitle,
 } from 'reka-ui'
+import FormDialog from "~/components/FormDialog.vue";
 
 const prop = defineProps({
   open: Boolean,
@@ -27,19 +27,7 @@ const emit = defineEmits(['update:open', 'close']);
             aria-label="Close"
             @click="emit('close')"/>
         </div>
-        <div class="DialogMainContent">
-          <DialogTitle class="DialogTitle">Оставить заявку</DialogTitle>
-          <div class="modal-content__form">
-            <input placeholder="Имя">
-            <input placeholder="Телефон">
-            <input placeholder="Сообщение">
-          </div>
-          <div class="modal-content__btn">
-            <Button/>
-            <p>Нажимая на кнопку «Отправить», вы<br> принимаете <span>пользовательское соглашение</span><br>
-              и <span>политику конфиденциальности</span></p>
-          </div>
-        </div>
+        <FormDialog/>
       </DialogContent>
     </DialogPortal>
   </DialogRoot>
@@ -75,7 +63,7 @@ const emit = defineEmits(['update:open', 'close']);
 .IconButton {
   display: block;
   right: 0;
-  margin: 78px 24px 0px 0px;
+  margin: 24px 24px 0px 0px;
   height: 32px;
   width: 32px;
   border-radius: 6px;
@@ -97,64 +85,10 @@ const emit = defineEmits(['update:open', 'close']);
   position: absolute;
 }
 
-.DialogMainContent {
-  margin: 48px 48px 47px;
-  display: flex;
-  flex-direction: column;
-  row-gap: 24px;
-}
-
-p {
-  color: #757E8D;
-  line-height: 150%;
-}
-
-p span {
-  color: $secondary;
-}
-
-.modal-content__form {
-  display: flex;
-  flex-direction: column;
-  row-gap: 24px;
-}
-
-input {
-  height: 25px;
-  border-radius: 5px;
-  border: none;
-}
-
-input:last-child {
-  height: 67px;
-}
-button {
-  align-self: center;
-}
-
-.modal-content__btn {
-  margin-top: 8px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  row-gap: 16px;
-}
-
 @media (max-width: 769px) {
   .DialogContent {
     width: 344px;
     height: 592px;
   }
-
-  .DialogMainContent {
-    margin: 64px 17px 32px 17px;
-  }
-
-  .DialogTitle, .modal-content__form {
-    margin: 0px 7px;
-  }
 }
-
-
-
 </style>
