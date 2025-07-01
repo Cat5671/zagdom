@@ -73,12 +73,10 @@ const slides = [
 
   function removeButtonClass(sliderButton, arrow) {
     document.querySelector(sliderButton).classList.remove('disabled');
-    document.querySelector(arrow).classList.remove('disabled_arrow');
   }
 
   function addButtonClass(sliderButton, arrow) {
     document.querySelector(sliderButton).classList.add('disabled');
-    document.querySelector(arrow).classList.add('disabled_arrow');
   }
 
   const moveRight = function () {

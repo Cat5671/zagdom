@@ -152,6 +152,19 @@ a {
   color: white;
 }
 
+.buttons__num .active-button {
+  background-color: $primary;
+  border: 1px solid $primary;
+  color: white;
+  pointer-events: none;
+}
+
+.buttons__num button:focus {
+  background-color: $primary;
+  border: 1px solid $primary;
+  color: white;
+}
+
 .buttons__num button {
   background-color: white;
   border: 1px solid #9D9C9C;

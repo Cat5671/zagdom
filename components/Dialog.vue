@@ -75,7 +75,7 @@ const emit = defineEmits(['update:open', 'close']);
 .IconButton {
   display: block;
   right: 0;
-  margin: 24px 24px 0px 0px;
+  margin: 78px 24px 0px 0px;
   height: 32px;
   width: 32px;
   border-radius: 6px;
