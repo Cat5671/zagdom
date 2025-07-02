@@ -288,16 +288,12 @@ const goToPage = (page) => {
       padding-top: 8px;
     }
 
-    .news-page__buttons div button:nth-child(even) {
-      display: none;
-    }
-
     h1 {
       font-size: 32px;
     }
   }
 
-  button:first-child {
+  .arrow-btn:first-child {
     transform: scale(-1);
   }
 
